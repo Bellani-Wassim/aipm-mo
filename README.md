@@ -18,3 +18,21 @@ For this project, we utilize the historical air quality dataset from Seoul (Kagg
 * **Size:** Our filtered dataset for 2021 has 213,414 rows and 10 columns.
 * **Data Types:** Everything looks good here. Pandas correctly loaded all the sensor data (`so2`, `pm10`, etc.) as numbers (`float64`). The date and location columns are integers (`int64`). 
 * **Missing Data:** We used `df.info()` and noticed that there are some missing values (NaNs). For example, the `pm10` column only has 210,804 valid entries instead of the full 213,414. Handling these missing values will be our first task in the upcoming Data Cleaning phase.
+
+## 📊 Baseline Model Results
+Our initial prediction pipeline utilizes a **Random Forest Regressor** trained on historical 2021 air quality data from Seoul.
+
+### Data Preparation
+* **Target:** PM2.5 concentration
+* **Features:** SO2, NO2, CO, O3, PM10
+* **Preprocessing:** Missing values dropped, datetime formatting fixed, and features scaled using `StandardScaler`.
+* **Split:** 80% Training (167k rows) / 20% Testing (41k rows)
+
+### Initial Performance Metrics
+| Metric | Score | Description |
+| :--- | :--- | :--- |
+| **$R^2$ Score** | `0.8671` | The model explains 86.7% of the variance in PM2.5 levels. |
+| **MSE** | `40.48` | Mean Squared Error (Standard benchmark). |
+| **MAPE** | `34.09%` | Mean Absolute Percentage Error. |
+
+*Further hyperparameter tuning and cross-validation are ongoing to optimize these baseline metrics.*
