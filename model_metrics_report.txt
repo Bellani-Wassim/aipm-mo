@@ -1,0 +1,5 @@
+Random Forest Baseline Metrics (5-Fold CV)
+Average R2 Score: 0.8812
+Average MSE:      36.8400
+Average MAPE:     32.23%
+Status: Model is robust and validated.
