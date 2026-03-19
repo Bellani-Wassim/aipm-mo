@@ -28,11 +28,9 @@ Our initial prediction pipeline utilizes a **Random Forest Regressor** trained o
 * **Preprocessing:** Missing values dropped, datetime formatting fixed, and features scaled using `StandardScaler`.
 * **Split:** 80% Training (167k rows) / 20% Testing (41k rows)
 
-### Initial Performance Metrics
+### Performance Metrics
 | Metric | Score | Description |
 | :--- | :--- | :--- |
 | **$R^2$ Score** | `0.8671` | The model explains 86.7% of the variance in PM2.5 levels. |
-| **MSE** | `40.48` | Mean Squared Error (Standard benchmark). |
-| **MAPE** | `34.09%` | Mean Absolute Percentage Error. |
-
-*Further hyperparameter tuning and cross-validation are ongoing to optimize these baseline metrics.*
+| **MSE** | `40.48` | The Mean Squared Error, indicating the average squared difference between the estimated and actual values. |
+| **MAPE** | `34.09%` | The Mean Absolute Percentage Error, representing the average percentage deviation of the predictions from the true values. |
