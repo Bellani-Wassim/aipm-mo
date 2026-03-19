@@ -22,6 +22,16 @@ We utilized a subset of the Seoul Air Quality dataset, focusing exclusively on t
 The baseline model was evaluated against the unseen 20% testing data. 
 * **R-squared ($R^2$): 0.8671** (The model successfully explains ~86.7% of the variance in PM2.5 levels, indicating a strong predictive capability for an initial baseline).
 * **Mean Squared Error (MSE): 40.48** (Standard error metric required for academic benchmarking).
-* **Mean Absolute Percentage Error (MAPE): 34.09%** (Average percentage by which the predictions deviate from the actual values).
+* **Mean Absolute Percentage Error (MAPE): 34.09%** (Average percentage by which the predictions deviate from the actual PM2.5 values).
 
-*Note: Cross-validation testing is currently underway to verify these results and ensure the model is not overfitting to the training data.*
+## 5. Hyperparameter Optimization & Cross-Validation
+To ensure the model's stability and improve its predictive power, we performed systematic hyperparameter tuning using cross-validation.
+* **Optimal Configuration:** By restricting the maximum depth to 15 and increasing the forest size to 250 trees, we achieved our highest performance.
+* **Optimized R-squared ($R^2$): 0.8812**.
+* **Diminishing Returns:** Increasing the number of trees to 500 yielded only a marginal improvement (less than 0.0001 in $R^2$) while doubling the cross-validation time to 9 minutes, indicating that further increasing the model size does not provide a significant benefit relative to the increased computational cost.
+* **Impact of Complexity:** Experiments with a higher depth (30 or unlimited) resulted in a regression of the $R^2$ score toward baseline levels and sharply increased computational time to approximately 17 minutes. These results indicate that excessive depth leads to overfitting, where the model captures noise rather than generalizable patterns.
+
+## 6. Conclusion
+The configuration consisting of 250 trees and a maximum depth of 15 was selected as the final baseline model. It offers the most efficient architecture while maintaining peak accuracy for our air quality predictions. 
+
+In future sprints, the hybrid CNN-LSTM architecture will be rigorously evaluated against this highly robust Random Forest benchmark to quantify the specific improvements provided by the deep learning approach.
